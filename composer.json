@@ -1,6 +1,6 @@
 {
 	"name" : "magdev/imprint-bundle",
-	"description" : "Add an Imprint page to your application as required in many countries",
+	"description" : "Adds an Imprint page to your application as required in some countries",
 	"keywords" : [
 		"imprint"
 	],
@@ -13,5 +13,10 @@
 	"license" : "MIT",
 	"require" : {
 		"php" : ">=5.6"
-	}
+	},
+	"authors" : [{
+			"name" : "Marco Grätsch",
+			"email" : "magdev3.0@gmail.com"
+		}
+	]
 }

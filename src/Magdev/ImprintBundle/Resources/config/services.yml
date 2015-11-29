@@ -4,7 +4,7 @@ services:
         arguments: ["%magdev_imprint.imprint_info%"]
         
         
-    # Twig Extensions
+    # Twig Extension
     twig.extension.imprint:
         class: Magdev\ImprintBundle\Twig\ImprintExtension
         arguments: ["@magdev_imprint.info"]
