@@ -5,8 +5,8 @@
 		"imprint"
 	],
 	"autoload" : {
-		"psr-4" : {
-			"Magdev\\ImprintBundle\\" : "src"
+		"psr-0" : {
+			"Magdev\\ImprintBundle" : "src"
 		}
 	},
 	"type" : "symfony-bundle",
