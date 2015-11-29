@@ -1,0 +1,17 @@
+{
+	"name" : "magdev/imprint-bundle",
+	"description" : "Add an Imprint page to your application as required in many countries",
+	"keywords" : [
+		"imprint"
+	],
+	"autoload" : {
+		"psr-4" : {
+			"Magdev\\ImprintBundle\\" : "src"
+		}
+	},
+	"type" : "symfony-bundle",
+	"license" : "MIT",
+	"require" : {
+		"php" : ">=5.6"
+	}
+}

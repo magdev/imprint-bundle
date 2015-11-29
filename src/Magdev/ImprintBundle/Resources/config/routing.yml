@@ -1,0 +1,3 @@
+magdev_imprint:
+    path: /imprint
+    defaults: { _controller: "MagdevImprintBundle:Default:index" }

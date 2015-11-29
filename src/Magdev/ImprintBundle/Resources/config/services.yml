@@ -1,0 +1,12 @@
+services:
+    magdev_imprint.info:
+        class: Magdev\ImprintBundle\Service\InfoService
+        arguments: ["%magdev_imprint.imprint_info%"]
+        
+        
+    # Twig Extensions
+    twig.extension.imprint:
+        class: Magdev\ImprintBundle\Twig\ImprintExtension
+        arguments: ["@magdev_imprint.info"]
+        tags:
+            - { name: twig.extension }

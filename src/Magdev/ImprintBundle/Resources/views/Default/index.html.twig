@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain 'MagdevImprintBundle' %}
+
+{% block title %}{{ 'imprint.header'|trans }}{% endblock %}
+
+{% block fos_user_content %}
+<div class="page-header">
+	<h1>{{ 'imprint.header'|trans }}</h1>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<dl class="dl-horizontal">
+			{% for group in info|keys %}
+				<dt>{{ 'imprint.group.' ~ group|trans }}</dt>
+				<dd>
+					{% if group == 'provider' or group == 'responsiblePerson' %}
+						<address>
+							{% if group == 'provider' %}
+								{% if has_imprint(group, 'name') %}<strong class="imprint-name">{{ imprint(group, 'name') }}</strong><br/>{% endif %}
+							{% else %}
+								{% if has_imprint(group, 'name') %}<span class="imprint-name">{{ imprint(group, 'name') }}</span><br/>{% endif %}
+							{% endif %}
+							{% if has_imprint(group, 'street') %}<span class="imprint-street">{{ imprint(group, 'street') }}</span><br/>{% endif %}
+							{% if has_imprint(group, 'zipcode') %}<span class="imprint-zipcode">{{ imprint(group, 'zipcode') }}</span>{% endif %} 
+							{% if has_imprint(group, 'city') %}<span class="imprint-city">{{ imprint(group, 'city') }}</span>{% endif %} 
+							{% if has_imprint(group, 'country') %}<em>(<span class="imprint-country">{{ imprint(group, 'country') }}</span>)</em>{% endif %}
+						</address>
+					{% else %}
+						<dl>
+							{% for key in info[group]|keys %}
+								{% if has_imprint(group, key) %}
+									<span class="imprint-{{ group }}-{{ key }}">
+										{% if key == 'email' %}
+											<a href="mailto:{{ imprint(group, key) }}">{{ imprint(group, key) }}</a>
+										{% elseif key == 'url' %}
+											<a href="{{ imprint(group, key) }}">{{ imprint(group, key) }}</a>
+										{% elseif key == 'phone' %}
+											<a href="tel:{{ imprint(group, key) }}">{{ imprint(group, key) }}</a>
+										{% else %}
+											{{ imprint(group, key) }}
+										{% endif %}
+									</span><br/>
+								{% endif %}
+							{% endfor %}
+						</dl>
+					{% endif %}
+				</dd>
+			{% endfor %}
+		</dl>
+	</div>
+</div>
+{% endblock %}
