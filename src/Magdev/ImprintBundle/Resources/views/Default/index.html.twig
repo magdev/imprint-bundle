@@ -11,7 +11,7 @@
 	<div class="col-xs-12">
 		<dl class="dl-horizontal">
 			{% for group in info|keys %}
-				<dt>{{ 'imprint.group.' ~ group|trans }}</dt>
+				<dt>{{ ('imprint.group.' ~ group)|trans }}</dt>
 				<dd>
 					{% if group == 'provider' or group == 'responsiblePerson' %}
 						<address>
