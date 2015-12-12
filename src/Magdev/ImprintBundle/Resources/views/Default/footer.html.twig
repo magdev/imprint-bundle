@@ -29,7 +29,17 @@
 		 	{% if has_imprint('provider', 'country') %} <em>({{ imprint('provider', 'country')|trim }})</em>{% endif %}
 		</address>
 	</div>
-	{% if infotext is defined %}
-	<div class="col-xs-12 col-md-3 text-right">{{ infotext }}</div>
-	{% endif %}
+	<div class="col-xs-12 col-md-3 text-right">
+		{% if infotext is defined and infotext %}
+			{% if infotext_link is defined and infotext_link %}
+				<a href="{{ infotext_link }}" target="_blank">{{ infotext }}</a>
+			{% else %}
+				{{ infotext }}
+			{% endif %}
+		{% else %}
+			{% if infotext_link is defined and infotext_link %}
+				<a href="{{ infotext_link }}" target="_blank">{{ infotext_link }}</a>
+			{% endif %}
+		{% endif %}
+	</div>
 </div>
