@@ -16,14 +16,29 @@
 					{% if group == 'provider' or group == 'responsiblePerson' %}
 						<address>
 							{% if group == 'provider' %}
-								{% if has_imprint(group, 'name') %}<strong class="imprint-name">{{ imprint(group, 'name') }}</strong><br/>{% endif %}
+								{% if has_imprint(group, 'name') %}
+									<strong class="imprint-name">{{ imprint(group, 'name') }}</strong><br/>
+								{% endif %}
 							{% else %}
-								{% if has_imprint(group, 'name') %}<span class="imprint-name">{{ imprint(group, 'name') }}</span><br/>{% endif %}
+								{% if has_imprint(group, 'name') %}
+									<span class="imprint-name">{{ imprint(group, 'name') }}</span><br/>
+								{% endif %}
+								{% if has_imprint(group, 'company') %}
+									<span class="imprint-company">{{ imprint(group, 'company') }}</span><br/>
+								{% endif %}
 							{% endif %}
-							{% if has_imprint(group, 'street') %}<span class="imprint-street">{{ imprint(group, 'street') }}</span><br/>{% endif %}
-							{% if has_imprint(group, 'zipcode') %}<span class="imprint-zipcode">{{ imprint(group, 'zipcode') }}</span>{% endif %} 
-							{% if has_imprint(group, 'city') %}<span class="imprint-city">{{ imprint(group, 'city') }}</span>{% endif %} 
-							{% if has_imprint(group, 'country') %}<em>(<span class="imprint-country">{{ imprint(group, 'country') }}</span>)</em>{% endif %}
+							{% if has_imprint(group, 'street') %}
+								<span class="imprint-street">{{ imprint(group, 'street') }}</span><br/>
+							{% endif %}
+							{% if has_imprint(group, 'zipcode') %}
+								<span class="imprint-zipcode">{{ imprint(group, 'zipcode') }}</span> 
+							{% endif %} 
+							{% if has_imprint(group, 'city') %}
+								<span class="imprint-city">{{ imprint(group, 'city') }}</span> 
+							{% endif %} 
+							{% if has_imprint(group, 'country') %}
+								<em>(<span class="imprint-country">{{ imprint(group, 'country') }}</span>)</em>
+							{% endif %}
 						</address>
 					{% else %}
 						<dl>

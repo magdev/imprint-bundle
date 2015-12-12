@@ -1,0 +1,24 @@
+{% if has_imprint('copyright', 'year') %}
+	&copy {{ imprint('copyright', 'year') }}{% if imprint('copyright', 'year') != 'now'|date('Y') %}&mdash;{{'now'|date('Y')}}{% endif %}
+	{% if has_imprint('copyright', 'holder') %}
+		{{ imprint('copyright', 'holder') }}
+	{% endif %}
+{% endif %}
+
+{% if infotext is defined %}
+ &ndash; {{ infotext }}
+{% endif %}
+
+ &ndash; <address>
+ 	{% if has_imprint('provider', 'name') %}
+ 		{{ imprint('provider', 'name') }}
+ 	{% else %}
+ 		{% if has_imprint('provider', 'company') %}{{ imprint('provider', 'company') }}{% endif %}
+ 	{% endif %}
+ 	{% if has_imprint('provider', 'street') %}, {{ imprint('provider', 'street') }}{% endif %}
+ 	{% if has_imprint('provider', 'num') %} {{ imprint('provider', 'num') }}{% endif %}
+ 	{% if has_imprint('provider', 'zipcode') %}, {{ imprint('provider', 'zipcode') }}{% endif %}
+ 	{% if has_imprint('provider', 'city') %}  {{ imprint('provider', 'city') }}{% endif %}
+ 	{% if has_imprint('provider', 'country') %} <em>({{ imprint('provider', 'country') }})</em>{% endif %}
+ </address>
+{% endif %}

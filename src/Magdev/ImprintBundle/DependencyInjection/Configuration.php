@@ -42,6 +42,7 @@ class Configuration implements ConfigurationInterface
         		->arrayNode('responsiblePerson')
         			->children()
 	        			->scalarNode('name')->cannotBeEmpty()->end()
+	        			->scalarNode('company')->end()
 	        			->scalarNode('note')->end()
 	        			->scalarNode('street')->cannotBeEmpty()->end()
 	        			->scalarNode('zipcode')->cannotBeEmpty()->end()
