@@ -57,6 +57,12 @@ class Configuration implements ConfigurationInterface
 	        			->scalarNode('ceo')->end()
 	        		->end()
 	        	->end()
+        		->arrayNode('copyright')
+        			->children()
+	        			->scalarNode('year')->end()
+	        			->scalarNode('holder')->end()
+	        		->end()
+	        	->end()
         	->end()
         ->end();
         
