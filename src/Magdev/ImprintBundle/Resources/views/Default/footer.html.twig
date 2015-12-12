@@ -1,23 +1,35 @@
-{% if has_imprint('copyright', 'year') %}
-	&copy {{ imprint('copyright', 'year') }}{% if imprint('copyright', 'year') != 'now'|date('Y') %}&mdash;{{'now'|date('Y')}}{% endif %}
-	{% if has_imprint('copyright', 'holder') %}
-		{{ imprint('copyright', 'holder') }}
+<div class="row">
+	<div class="col-xs-3 col-md-3 text-left">
+		{% if has_imprint('copyright', 'year') %}
+			&copy {{ imprint('copyright', 'year') }}{% if imprint('copyright', 'year') != 'now'|date('Y') %} &mdash; {{'now'|date('Y')}}{% endif %}
+			{% if has_imprint('copyright', 'holder') %}
+				{{ imprint('copyright', 'holder') }}
+			{% endif %}
+			{% if has_imprint('copyright', 'note') %}
+				 &bull; {{ imprint('copyright', 'note') }}
+			{% endif %}
+		{% endif %}
+	</div>
+	<div class="col-xs-9 col-md-6 text-center">
+		<address>
+		 	{% if has_imprint('provider', 'name') %}
+		 		{{ imprint('provider', 'name')|trim }}
+		 		{% if has_imprint('provider', 'company') %}
+		 			 &bull; {{ imprint('provider', 'company')|trim }}
+		 		{% endif %}
+		 	{% else %}
+		 		{% if has_imprint('provider', 'company') %}
+		 			{{ imprint('provider', 'company')|trim }}
+		 		{% endif %}
+		 	{% endif %}
+		 	{% if has_imprint('provider', 'street') %} &bull; {{ imprint('provider', 'street')|trim }}{% endif %}
+		 	{% if has_imprint('provider', 'num') %} {{ imprint('provider', 'num')|trim }}{% endif %}
+		 	{% if has_imprint('provider', 'zipcode') %} &bull; {{ imprint('provider', 'zipcode')|trim }}{% endif %}
+		 	{% if has_imprint('provider', 'city') %}  {{ imprint('provider', 'city')|trim }}{% endif %}
+		 	{% if has_imprint('provider', 'country') %} <em>({{ imprint('provider', 'country')|trim }})</em>{% endif %}
+		</address>
+	</div>
+	{% if infotext is defined %}
+	<div class="col-xs-12 col-md-3 text-right">{{ infotext }}</div>
 	{% endif %}
-{% endif %}
-
-{% if infotext is defined %}
- &ndash; {{ infotext }}
-{% endif %}
-
- &ndash; <address>
- 	{% if has_imprint('provider', 'name') %}
- 		{{ imprint('provider', 'name') }}
- 	{% else %}
- 		{% if has_imprint('provider', 'company') %}{{ imprint('provider', 'company') }}{% endif %}
- 	{% endif %}
- 	{% if has_imprint('provider', 'street') %}, {{ imprint('provider', 'street') }}{% endif %}
- 	{% if has_imprint('provider', 'num') %} {{ imprint('provider', 'num') }}{% endif %}
- 	{% if has_imprint('provider', 'zipcode') %}, {{ imprint('provider', 'zipcode') }}{% endif %}
- 	{% if has_imprint('provider', 'city') %}  {{ imprint('provider', 'city') }}{% endif %}
- 	{% if has_imprint('provider', 'country') %} <em>({{ imprint('provider', 'country') }})</em>{% endif %}
-</address>
+</div>

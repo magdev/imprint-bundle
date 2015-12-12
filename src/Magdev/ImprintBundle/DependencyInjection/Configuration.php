@@ -62,6 +62,7 @@ class Configuration implements ConfigurationInterface
         			->children()
 	        			->scalarNode('year')->end()
 	        			->scalarNode('holder')->end()
+	        			->scalarNode('note')->end()
 	        		->end()
 	        	->end()
         	->end()
