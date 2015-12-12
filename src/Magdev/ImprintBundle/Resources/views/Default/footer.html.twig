@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-xs-3 col-md-3 text-left">
 		{% if has_imprint('copyright', 'year') %}
-			&copy {{ imprint('copyright', 'year') }}{% if imprint('copyright', 'year') != 'now'|date('Y') %} &mdash; {{'now'|date('Y')}}{% endif %}
+			&copy {{ imprint('copyright', 'year') }}{% if imprint('copyright', 'year') < 'now'|date('Y') %} &mdash; {{'now'|date('Y')}}{% endif %}
 			{% if has_imprint('copyright', 'holder') %}
 				{{ imprint('copyright', 'holder') }}
 			{% endif %}
